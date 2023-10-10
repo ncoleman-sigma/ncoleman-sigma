@@ -1,0 +1,63 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Version Tagging CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events for the "main" branch
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - '.github/**'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  call_vt_api:
+    
+    name: Version Tagging API Job
+    
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Which File Changed
+        id: which_file_changed
+        run: |
+          last_commit_hash=$(git log -1 --pretty="format:%H")
+          file_name=$(git diff-tree --no-commit-id --name-only -r $last_commit_hash)
+          echo -n "file_name_var=$file_name" >> $GITHUB_OUTPUT
+          
+      - name: Set Environment Variables
+        id: set_env_vars_aws
+        if: contains(steps.which_file_changed.outputs.file_name_var,'AWS')
+        run: |
+          echo "api_url=https://aws-api.sigmacomputing.com" >> $GITHUB_ENV
+          echo "client_id=5a375507cd5553134a44914b496909a2a4b40668aa213cb2e2ea1a82aa1b8399" >> $GITHUB_ENV
+          echo "api_token=29c47ef39c120b020e2477132ca9a318083935d79c242bd973b1a8de95ec9f6e3a778201ffa47cd394009f60268755d3c9b0a7ace9b2b54d75a2aab4e213ad98" >> $GITHUB_ENV
+
+      - name: Auth Token Call
+        id: auth_token_call
+        run: |
+          token_base64=`echo -n $(curl -X POST ${{ env.api_url }}/v2/auth/token --header 'Content-Type=application/x-www-form-urlencoded' --data-urlencode 'grant_type=client_credentials' --data-urlencode 'client_id=${{ env.client_id }}' --data-urlencode 'client_secret=${{ env.api_token }}') | jq -c '.access_token'`
+          echo -n "access_token=$token_base64" >> $GITHUB_OUTPUT
+
+      - id: read_json_file
+        run: |
+          content=`cat ${{ steps.which_file_changed.outputs.file_name_var }}`
+          content="${content//$'\n'/' '}"
+          echo -n "json_var=$content" >> $GITHUB_OUTPUT
+      
+      - name: Version Tagging API Call
+        run: |
+          test=$(curl -X POST ${{ env.api_url }}/v2/workbooks/tag --header 'Content-Type: application/json' --header "Authorization: Bearer ${{ steps.auth_token_call.outputs.access_token }}" --data '${{ steps.read_json_file.outputs.json_var }}')
+          echo $test
