@@ -5,8 +5,8 @@
     "grantSourceAccess": true,
     "sourceMappingConfig": [
       {
-        "fromConnectionId": "1bfffad8-b2e7-4a8a-bdd8-ab1d7f115b99",
-        "toConnectionId": "47f513ab-ec42-4e7f-9e1f-3fb1a21590a1",
+        "fromConnectionId": "9c8de7ff-88e6-403b-8971-42118a1e5d2e",
+        "toConnectionId": "1bfffad8-b2e7-4a8a-bdd8-ab1d7f115b99",
         "paths": [{ "fromPath": ["SE_DEMO_DB", "RETAIL_DEMO", "PLUGS_ELECTRONICS_HANDS_ON_LAB_DATA"], "toPath": ["SE_DEMO_DB", "RETAIL_DEMO", "PLUGS_ELECTRONICS_HANDS_ON_LAB_DATA"] }]
       }
     ],
