@@ -7,7 +7,7 @@
       {
         "fromConnectionId": "1bfffad8-b2e7-4a8a-bdd8-ab1d7f115b99",
         "toConnectionId": "47f513ab-ec42-4e7f-9e1f-3fb1a21590a1",
-        "paths": [{ "fromPath": ["SE_DEMO_DB", "RETAIL_DEMO", "DIM_COMPANY"], "toPath": ["SE_DEMO_DB", "RETAIL_DEMO", "DIM_COMPANY"] }]
+        "paths": [{ "fromPath": ["SE_DEMO_DB", "RETAIL_DEMO", "PLUGS_ELECTRONICS_HANDS_ON_LAB_DATA"], "toPath": ["SE_DEMO_DB", "RETAIL_DEMO", "PLUGS_ELECTRONICS_HANDS_ON_LAB_DATA"] }]
       }
     ],
     "sourceVersions": {}
