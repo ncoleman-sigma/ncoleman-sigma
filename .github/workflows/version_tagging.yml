@@ -39,7 +39,6 @@ jobs:
           
       - name: Set Environment Variables
         id: set_env_vars_aws
-        if: contains(steps.which_file_changed.outputs.file_name_var,'AWS')
         run: |
           echo "api_url=https://aws-api.sigmacomputing.com" >> $GITHUB_ENV
           echo "client_id=5a375507cd5553134a44914b496909a2a4b40668aa213cb2e2ea1a82aa1b8399" >> $GITHUB_ENV
