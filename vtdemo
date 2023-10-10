@@ -1,0 +1,14 @@
+{
+    "workbookId": "tOydif1GEvyNy1nJO7MUh", 
+    "workbookVersion": 1, 
+    "tag": "Production",
+    "grantSourceAccess": true,
+    "sourceMappingConfig": [
+      {
+        "fromConnectionId": "1bfffad8-b2e7-4a8a-bdd8-ab1d7f115b99",
+        "toConnectionId": "47f513ab-ec42-4e7f-9e1f-3fb1a21590a1",
+        "paths": [{ "fromPath": ["SE_DEMO_DB", "RETAIL_DEMO", "DIM_COMPANY"], "toPath": ["SE_DEMO_DB", "RETAIL_DEMO", "DIM_COMPANY"] }]
+      }
+    ],
+    "sourceVersions": {}
+  }
