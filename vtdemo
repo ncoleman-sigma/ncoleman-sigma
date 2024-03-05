@@ -1,12 +1,12 @@
 {
-    "workbookId": "5ndojCcpJAxOmaz1TMMWFc", 
+    "workbookId": "1D69iPElJDpjMwkUjL4C19", 
     "workbookVersion": 1, 
     "tag": "Production",
     "grantSourceAccess": true,
     "sourceMappingConfig": [
       {
-        "fromConnectionId": "9c8de7ff-88e6-403b-8971-42118a1e5d2e",
-        "toConnectionId": "1bfffad8-b2e7-4a8a-bdd8-ab1d7f115b99",
+        "fromConnectionId": "ae819b42-ded7-491d-ba11-1674c92b3006",
+        "toConnectionId": "a48a9c2c-22fa-4ac5-ba49-83582f0fea7e",
         "paths": [{ "fromPath": ["SE_DEMO_DB", "RETAIL_DEMO", "PLUGS_ELECTRONICS_HANDS_ON_LAB_DATA"], "toPath": ["SE_DEMO_DB", "RETAIL_DEMO", "PLUGS_ELECTRONICS_HANDS_ON_LAB_DATA"] }]
       }
     ],
