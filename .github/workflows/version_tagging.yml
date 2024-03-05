@@ -40,7 +40,7 @@ jobs:
       - name: Set Environment Variables
         id: set_env_vars_aws
         run: |
-          echo "api_url=https://aws-api.sigmacomputing.com" >> $GITHUB_ENV
+          echo "api_url=https://api.sigmacomputing.com" >> $GITHUB_ENV
           echo "client_id=01a810defae8b1e2dc5a19d71a5ed0dea94d51de287b73c1795f51e9094648a2" >> $GITHUB_ENV
           echo "api_token=81f2be599b0caf9845f951cb2527047da5148dc740577e0550f922adc9f363a73aef12c2fadf7c6b541c4e7254f2507f536316da31a01a1315a8133a028fcf5f" >> $GITHUB_ENV
 
