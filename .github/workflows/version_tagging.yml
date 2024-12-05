@@ -41,8 +41,8 @@ jobs:
         id: set_env_vars_aws
         run: |
           echo "api_url=https://api.sigmacomputing.com" >> $GITHUB_ENV
-          echo "client_id=01a810defae8b1e2dc5a19d71a5ed0dea94d51de287b73c1795f51e9094648a2" >> $GITHUB_ENV
-          echo "api_token=81f2be599b0caf9845f951cb2527047da5148dc740577e0550f922adc9f363a73aef12c2fadf7c6b541c4e7254f2507f536316da31a01a1315a8133a028fcf5f" >> $GITHUB_ENV
+          echo "client_id=f6a3ad0a74fe6a4880eb88a1c4729df26f689e1ec58b8ec5ee4a848af558bd40" >> $GITHUB_ENV
+          echo "api_token=6a961958dcb8a89b77c5dd926b69fc411777c854c55dad47b33081c8fddadf1a496460907ac7dc06725c6f5adb158ef8048a1701fe82a2645725eebf5c54907e" >> $GITHUB_ENV
 
       - name: Auth Token Call
         id: auth_token_call
